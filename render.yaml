@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: suaraku-gemini-mp3
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_TTS_MODEL
+        value: gemini-3.8-flash-tts
+      - key: NODE_VERSION
+        value: 22
